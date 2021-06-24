@@ -1,0 +1,24 @@
+<h4 class='d-flex justify-content-between mb-4'>
+  <span>Libri</span>
+  <%= link_to 'New Book', new_book_path , class: 'btn btn-primary' %>
+</h4>
+
+<% @books.each do |book| %>
+  <%= link_to edit_book_path(book), class: 'text-decoration-none' do %>
+    <div class="card mb-3 book-card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+            <% if book.header_image.present? %>
+              <div class="header-img" style="background-image: url(<%= url_for(book.header_image) %>);"></div>
+            <% end %>
+          </div>
+          <div class="col-md-10">
+            <h5 class='card-title mb-1 text-dark'><%= book.title %></h5>
+            <p class='text-secondary mb-0'><%= book.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

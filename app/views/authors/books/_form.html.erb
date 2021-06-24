@@ -1,0 +1,38 @@
+<%= form_with(model: book) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group mt-3">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group mt-3">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group mt-3">
+    <%= form.label :header_image %>
+    <%= form.file_field :header_image, class: 'form-control' %>
+    <div class="mt-1">
+      <% if book.header_image.present? %>
+        <small>Immagine</small>
+        <%= image_tag(book.header_image, width: '100%') %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions d-grid gap-2 mt-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

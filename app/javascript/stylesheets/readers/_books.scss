@@ -1,0 +1,21 @@
+.readers.pages.index{
+    .book-card{
+        height: 550px;
+        .header-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+}
+
+.readers.books.show{
+    .book-card{
+        .header-image {
+            height: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+}
